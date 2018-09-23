@@ -1,0 +1,48 @@
+<h1 id="basic-i2p-tunnels-tutorial-with-pictures">Basic i2p Tunnels Tutorial with Pictures</h1>
+<p>Although the Java i2p router comes pre-configured with a static web server, jetty, to provide the user's first eepSite, many require more sophisticated functionality from their web server and would rather create an eepSite with a different server. This is of course possible, and actually is really easy once you've done it one time.</p>
+<p>Although it is easy to do, there are a few things you should consider before doing it. You will want to remove identifying characteristics from your web server, like potentially identifying headers and default error pages that report the server/distro type. More information about threats to anonymity posed by improperly configured applications see: <a href="https://riseup.net/en/security/network-security/tor/onionservices-best-practices">Riseup here:</a>, <a href="https://www.whonix.org/wiki/Onion_Services">Whonix Here:</a>, <a href="https://blog.0day.rocks/securing-a-web-hidden-service-89d935ba1c1d">This blog article for some opsec fails:</a>, <a href="https://geti2p.net/en/docs/applications/supported">and the i2p applications page here</a>. Although much of this information is expressed for Tor Onion Services, the same procedures and principles apply to hosting applications over i2p.</p>
+<h2 id="step-one-open-the-tunnel-wizard">Step One: Open the Tunnel Wizard</h2>
+<p>Go to the i2p web interface at 127.0.0.1:7657 and open the <a href="http://127.0.0.1:7657/i2ptunnelmgr">Hidden Services Manager</a>(links to localhost). Click the button that says &quot;Tunnel Wizard&quot; to begin.</p>
+<div class="figure">
+<img src="00-wizard.png" alt="Step One: Open the Tunnel Wizard" />
+<p class="caption">Step One: Open the Tunnel Wizard</p>
+</div>
+<h2 id="step-two-select-a-server-tunnel">Step Two: Select a Server Tunnel</h2>
+<p>The tunnel wizard is very simple. Since we're setting up an http <em>server</em>, all we need to do is select a <em>server</em> tunnel.</p>
+<div class="figure">
+<img src="01-select.png" alt="Step Two: Select a Server Tunnel" />
+<p class="caption">Step Two: Select a Server Tunnel</p>
+</div>
+<h2 id="step-three-select-an-http-tunnel">Step Three: Select an HTTP Tunnel</h2>
+<p>Now I may be wrong, but I'm pretty sure that the only difference between http server tunnels and regular server tunnels is that http server tunnels add in the X-I2P-DEST* header's using the repliable address of the client visiting the site. If you don't make use of X-I2P-DEST, you could just use a server tunnel. Nonetheless, select the HTTP tunnel for now.</p>
+<div class="figure">
+<img src="02-http.png" alt="Step Three: Select an HTTP Tunnel" />
+<p class="caption">Step Three: Select an HTTP Tunnel</p>
+</div>
+<h2 id="step-four-give-it-a-name-and-a-description">Step Four: Give it a name and a description</h2>
+<p>For your own benefit and ability to remeber and distinguish the what you are using the tunnel for, give it a good nickname and description. If you need to come back and do more management later, then this is how you will identify the tunnel in the hidden services manager.</p>
+<div class="figure">
+<img src="03-name.png" alt="Step Four: Give it a name and a description" />
+<p class="caption">Step Four: Give it a name and a description</p>
+</div>
+<h2 id="step-five-configure-the-host-and-port">Step Five: Configure the Host and Port</h2>
+<p>In this step, you point the web server at the TCP port where your web server is listening. Since most web servers listen on port 80 or port 8080, the example shows that. If you use alternate ports or virtual machines or containers to isolate your web services, you may need to adjust the host, port, or both.</p>
+<div class="figure">
+<img src="04-port.png" alt="Step Five: Configure the Host and Port" />
+<p class="caption">Step Five: Configure the Host and Port</p>
+</div>
+<h2 id="step-six-decide-whether-to-start-it-automatically">Step Six: Decide whether to start it automatically</h2>
+<p>I cannot think of a way to elaborate on this step.</p>
+<div class="figure">
+<img src="05-auto.png" alt="Step Six: Decide whether to start it automatically" />
+<p class="caption">Step Six: Decide whether to start it automatically</p>
+</div>
+<h2 id="step-seven-review-your-settings">Step Seven: Review your settings</h2>
+<p>Finally, take a look at the settings you have selected. If you approve, save them. If you did not choose to start the tunnel automatically, go to the hidden services manager and start it manually when you wish to make your service available.</p>
+<div class="figure">
+<img src="06-finish.png" alt="Step Six: Review your settings" />
+<p class="caption">Step Six: Review your settings</p>
+</div>
+<h2 id="appendix-http-server-customization-options">Appendix: HTTP Server Customization Options</h2>
+<p>i2p provides a detailed panel for configuring the http server tunnel in custom ways. I'll finish this tutorial by walking through all of them. Eventually.</p>
+<p><img src="07-finished.png" alt="Options page" /> <img src="08-finished.png" alt="Options page" /> <img src="09-finished.png" alt="Options page" /> <img src="10-finished.png" alt="Options page" /></p>
